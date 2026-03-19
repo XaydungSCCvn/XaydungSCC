@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCC - Công Ty TNHH Xây Dựng SCC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #B8955A;
+  --gold-light: #D4B483;
+  --gold-pale: #F5EDD9;
+  --dark: #1A1714;
+  --dark2: #252119;
+  --mid: #3D3830;
+  --cream: #F8F4EE;
+  --cream2: #EDE7DC;
+  --white: #FFFFFF;
+  --text: #2C2820;
+  --text-light: #6B6358;
+  --text-pale: #A09585;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(248, 244, 238, 0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(184, 149, 90, 0.2);
+  transition: all 0.4s;
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.logo-sub {
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-menu a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-light);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.nav-menu a:hover, .nav-menu a.active { color: var(--gold); }
+
+.nav-cta {
+  background: var(--dark) !important;
+  color: var(--cream) !important;
+  padding: 10px 24px !important;
+  font-weight: 500 !important;
+  letter-spacing: 1px !important;
+  transition: all 0.3s !important;
+}
+
+.nav-cta:hover { background: var(--gold) !important; color: var(--dark) !important; }
+
+/* ===== PAGES ===== */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background: var(--dark);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 80px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-line {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-eyebrow-text {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 6vw, 84px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s ease 0.15s both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-desc {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(248,244,238,0.55);
+  max-width: 420px;
+  margin-bottom: 56px;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  animation: fadeUp 0.8s ease 0.45s both;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--dark);
+  padding: 14px 32px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
+
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+.btn-ghost {
+  border: 1px solid rgba(248,244,238,0.25);
+  color: var(--cream);
+  padding: 14px 32px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: transparent;
+  display: inline-block;
+}
+
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(248,244,238,0.1);
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 11px;
+  color: rgba(248,244,238,0.4);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--dark) 0%, transparent 30%);
+  z-index: 1;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.hero-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2A2520, #1A1714);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  opacity: 0.3;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 80px;
+}
+
+.section-header {
+  margin-bottom: 64px;
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.eyebrow-text {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.section-title em { font-style: italic; color: var(--gold); }
+
+.section-title-light {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--cream);
+}
+
+.section-title-light em { font-style: italic; color: var(--gold); }
+
+.section-desc {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-light);
+  max-width: 560px;
+  margin-top: 20px;
+}
+
+/* ===== SERVICES GRID ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--cream2);
+}
+
+.service-card {
+  background: var(--cream);
+  padding: 48px 40px;
+  position: relative;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 40px;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.4s;
+}
+
+.service-card:hover { background: var(--white); }
+.service-card:hover::after { width: calc(100% - 80px); }
+
+.service-icon { font-size: 36px; margin-bottom: 24px; }
+
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 300;
+  color: rgba(184,149,90,0.08);
+  position: absolute;
+  top: 16px; right: 32px;
+  line-height: 1;
+}
+
+.service-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--dark);
+}
+
+.service-desc {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.service-items {
+  list-style: none;
+}
+
+.service-items li {
+  font-size: 13px;
+  color: var(--text-pale);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--cream2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-items li::before {
+  content: '';
+  width: 4px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ===== ABOUT ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+  height: 560px;
+}
+
+.about-main-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 75%;
+  height: 85%;
+  background: linear-gradient(135deg, var(--cream2), var(--cream));
+  border: 1px solid var(--cream2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  overflow: hidden;
+}
+
+.about-sub-img {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 55%;
+  height: 50%;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.about-badge {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--gold);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 8px 32px rgba(184,149,90,0.4);
+}
+
+.badge-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1;
+}
+
+.badge-text { font-size: 9px; font-weight: 600; color: var(--dark); letter-spacing: 1px; text-align: center; }
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.about-feature {
+  background: var(--cream2);
+  padding: 20px;
+  border-left: 2px solid var(--gold);
+}
+
+.feature-title { font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+.feature-text { font-size: 12px; color: var(--text-pale); line-height: 1.6; }
+
+/* ===== PROJECTS ===== */
+.projects-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border: 1px solid var(--cream2);
+  background: transparent;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--dark);
+  color: var(--gold);
+  border-color: var(--dark);
+}
+
+.projects-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--cream2);
+}
+
+.project-card.large { grid-column: span 2; }
+
+.project-thumb {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(135deg, var(--cream2), var(--dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.6s;
+}
+
+.project-card.large .project-thumb { height: 380px; }
+.project-card:hover .project-thumb { transform: scale(1.04); }
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,23,20,0.8) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.project-card:hover .project-overlay { opacity: 1; }
+
+.project-overlay-text {
+  font-size: 13px;
+  color: var(--cream);
+  letter-spacing: 1px;
+}
+
+.project-info { padding: 20px 24px; }
+
+.project-tag {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.project-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.project-meta { font-size: 12px; color: var(--text-pale); }
+
+/* ===== PRICING ===== */
+.pricing-bg {
+  background: var(--dark);
+  padding: 100px 0;
+}
+
+.pricing-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.pricing-card {
+  border: 1px solid rgba(248,244,238,0.1);
+  padding: 48px 36px;
+  position: relative;
+  transition: all 0.4s;
+}
+
+.pricing-card.featured {
+  border-color: var(--gold);
+  background: rgba(184,149,90,0.06);
+}
+
+.pricing-card:hover:not(.featured) { border-color: rgba(184,149,90,0.4); }
+
+.pricing-badge {
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 16px;
+}
+
+.pricing-type {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.pricing-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+
+.pricing-desc { font-size: 13px; color: rgba(248,244,238,0.45); line-height: 1.7; margin-bottom: 24px; }
+
+.pricing-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.pricing-unit { font-size: 12px; color: rgba(248,244,238,0.35); margin-bottom: 32px; }
+
+.pricing-features { list-style: none; margin-bottom: 36px; }
+
+.pricing-features li {
+  font-size: 13px;
+  color: rgba(248,244,238,0.6);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(248,244,238,0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pricing-features li::before { content: '✓'; color: var(--gold); font-size: 11px; }
+
+.btn-gold-outline {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 14px 32px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+.btn-gold-outline:hover { background: var(--gold); color: var(--dark); }
+
+/* ===== PROCESS ===== */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 64px;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.process-step { text-align: center; padding: 0 24px; position: relative; }
+
+.step-num {
+  width: 64px;
+  height: 64px;
+  background: var(--cream);
+  border: 2px solid var(--cream2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gold);
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
+}
+
+.process-step:hover .step-num {
+  background: var(--gold);
+  color: var(--dark);
+  border-color: var(--gold);
+}
+
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.step-desc { font-size: 13px; color: var(--text-pale); line-height: 1.7; }
+
+/* ===== BLOG ===== */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.blog-main { }
+
+.blog-main-thumb {
+  height: 400px;
+  background: linear-gradient(135deg, var(--cream2), var(--dark2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-tag {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.blog-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.blog-excerpt { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+
+.blog-sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+.blog-item { display: flex; gap: 16px; cursor: pointer; }
+
+.blog-item-thumb {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  background: var(--cream2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.blog-item-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.blog-item-date { font-size: 11px; color: var(--text-pale); }
+
+/* ===== ABOUT PAGE ===== */
+.about-hero {
+  background: var(--dark);
+  padding: 160px 80px 100px;
+  max-width: 100%;
+}
+
+.about-hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--cream2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.team-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.team-role { font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+
+/* ===== CONTACT ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.contact-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.contact-value { font-size: 15px; font-weight: 500; color: var(--dark); }
+.contact-sub { font-size: 12px; color: var(--text-pale); margin-top: 2px; }
+
+.form-wrapper {
+  background: var(--dark);
+  padding: 48px 44px;
+}
+
+.form-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 32px;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(248,244,238,0.4);
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(248,244,238,0.06);
+  border: 1px solid rgba(248,244,238,0.12);
+  color: var(--cream);
+  padding: 14px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group select option { background: var(--dark2); }
+
+.form-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  padding: 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+
+.form-submit:hover { background: var(--gold-light); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark2);
+  border-top: 1px solid rgba(184,149,90,0.15);
+  padding: 72px 80px 40px;
+}
+
+.footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 56px;
+}
+
+.footer-brand p { font-size: 13px; color: rgba(248,244,238,0.35); line-height: 1.8; margin-top: 16px; max-width: 280px; }
+
+.footer-col h4 {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul a {
+  font-size: 13px;
+  color: rgba(248,244,238,0.35);
+  text-decoration: none;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+.footer-col ul a:hover { color: var(--gold); }
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(248,244,238,0.08);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p { font-size: 12px; color: rgba(248,244,238,0.25); }
+.footer-bottom .mst { color: var(--gold); opacity: 0.5; }
+
+/* ===== FLOATING ===== */
+.floating-btns {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.float-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+  position: relative;
+  cursor: pointer;
+}
+
+.float-btn:hover { transform: scale(1.1); }
+.float-zalo { background: #0068FF; }
+.float-phone { background: var(--gold); }
+
+.float-tip {
+  position: absolute;
+  right: 62px;
+  background: var(--dark);
+  color: var(--cream);
+  font-size: 12px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  border: 1px solid rgba(184,149,90,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.float-btn:hover .float-tip { opacity: 1; }
+
+/* ===== DIVIDER ===== */
+.gold-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--gold);
+  margin: 24px 0;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease;
+}
+
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== PAGE HERO MINI ===== */
+.page-hero {
+  background: var(--dark);
+  padding: 140px 80px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent, rgba(184,149,90,0.05));
+}
+
+.page-hero-inner { max-width: 1400px; margin: 0 auto; }
+
+.page-hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.1;
+}
+
+.page-hero-title em { font-style: italic; color: var(--gold); }
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  font-size: 12px;
+  color: rgba(248,244,238,0.4);
+}
+
+.breadcrumb span { color: var(--gold); }
+
+/* page bg */
+.bg-cream { background: var(--cream); }
+.bg-dark { background: var(--dark); }
+.bg-white { background: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="showPage('home')">
+      <div class="logo-mark">SCC</div>
+      <div class="logo-text">
+        <div class="logo-name">SCC CONSTRUCTION</div>
+        <div class="logo-sub">Xây dựng · Cải tạo · Nội thất</div>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a onclick="showPage('home')" id="nav-home" class="active">Trang chủ</a></li>
+      <li><a onclick="showPage('services')" id="nav-services">Dịch vụ</a></li>
+      <li><a onclick="showPage('projects')" id="nav-projects">Dự án</a></li>
+      <li><a onclick="showPage('pricing')" id="nav-pricing">Bảng giá</a></li>
+      <li><a onclick="showPage('process')" id="nav-process">Quy trình</a></li>
+      <li><a onclick="showPage('about')" id="nav-about">Giới thiệu</a></li>
+      <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
+      <li><a onclick="showPage('contact')" id="nav-contact" class="nav-cta">Liên hệ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ==================== TRANG CHỦ ==================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-line"></div>
+        <span class="hero-eyebrow-text">Công Ty TNHH Xây Dựng SCC · TP.HCM</span>
+      </div>
+      <h1 class="hero-title">
+        Kiến Tạo<br>
+        <em>Không Gian</em><br>
+        Sống Đẹp
+      </h1>
+      <p class="hero-desc">Chuyên sửa chữa, cải tạo và thi công nội thất nhà ở, căn hộ, văn phòng tại TP.HCM. Khảo sát miễn phí — Báo giá trong 5 phút.</p>
+      <div class="hero-actions">
+        <button class="btn-gold" onclick="showPage('contact')">Đặt lịch khảo sát</button>
+        <button class="btn-ghost" onclick="showPage('projects')">Xem dự án</button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Dự án</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">8+</div>
+          <div class="hero-stat-label">Năm KN</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">98%</div>
+          <div class="hero-stat-label">Hài lòng</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-overlay"></div>
+      <div class="hero-img-placeholder">🏗️</div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <div class="section">
+    <div class="section-header fade-in">
+      <div class="section-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Dịch Vụ</span></div>
+      <h2 class="section-title">Giải pháp xây dựng<br><em>toàn diện</em></h2>
+    </div>
+    <div class="services-grid fade-in">
+      <div class="service-card" onclick="showPage('services')">
+        <span class="service-num">01</span>
+        <div class="service-icon">🔨</div>
+        <h3 class="service-title">Sửa Chữa Nhà</h3>
+        <p class="service-desc">Khắc phục nhanh chóng các hỏng hóc, thấm dột, xuống cấp trong nhà ở.</p>
+        <ul class="service-items">
+          <li>Chống thấm, chống dột</li>
+          <li>Sơn sửa tường, trần nhà</li>
+          <li>Điện nước dân dụng</li>
+        </ul>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <span class="service-num">02</span>
+        <div class="service-icon">🏗️</div>
+        <h3 class="service-title">Cải Tạo & Nâng Cấp</h3>
+        <p class="service-desc">Cải tạo toàn diện không gian sống theo phong cách hiện đại.</p>
+        <ul class="service-items">
+          <li>Mở rộng, nâng tầng</li>
+          <li>Thay đổi mặt bằng</li>
+          <li>Hệ thống kỹ thuật</li>
+        </ul>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <span class="service-num">03</span>
+        <div class="service-icon">🛋️</div>
+        <h3 class="service-title">Thi Công Nội Thất</h3>
+        <p class="service-desc">Thiết kế và thi công nội thất trọn gói theo yêu cầu khách hàng.</p>
+        <ul class="service-items">
+          <li>Tủ bếp, tủ âm tường</li>
+          <li>Trần thạch cao, vách</li>
+          <li>Sàn gỗ, cửa nhôm kính</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <button class="btn-gold" onclick="showPage('services')">Xem tất cả dịch vụ</button>
+    </div>
+  </div>
+
+  <!-- ABOUT PREVIEW -->
+  <div style="background: var(--white); padding: 0;">
+    <div class="section">
+      <div class="about-grid">
+        <div class="about-visual fade-in">
+          <div class="about-main-img">🏠</div>
+          <div class="about-sub-img" style="display:flex;align-items:center;justify-content:center;font-size:40px;">🛋️</div>
+          <div class="about-badge">
+            <div class="badge-num">8+</div>
+            <div class="badge-text">NĂM<br>KN</div>
+          </div>
+        </div>
+        <div class="fade-in">
+          <div class="section-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Về Chúng Tôi</span></div>
+          <h2 class="section-title">Đối tác tin cậy<br>trong <em>xây dựng</em></h2>
+          <div class="gold-divider"></div>
+          <p class="section-desc">Công ty TNHH Xây Dựng SCC chuyên cung cấp dịch vụ sửa chữa, cải tạo và thi công nội thất toàn diện tại TP.HCM. Đồng hành từ khảo sát, thiết kế đến thi công và bàn giao.</p>
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="feature-title">🎯 Khảo sát miễn phí</div>
+              <div class="feature-text">Đội ngũ kỹ thuật đến tận nơi tư vấn không thu phí</div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-title">⚡ Báo giá nhanh</div>
+              <div class="feature-text">Nhận báo giá chi tiết trong vòng 5 phút</div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-title">🛡️ Bảo hành 12–24T</div>
+              <div class="feature-text">Cam kết bảo hành toàn bộ hạng mục thi công</div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-title">📋 HĐ minh bạch</div>
+              <div class="feature-text">Hợp đồng rõ ràng, tiến độ được cam kết</div>
+            </div>
+          </div>
+          <div style="margin-top:32px;">
+            <button class="btn-gold" onclick="showPage('about')">Tìm hiểu thêm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS PREVIEW -->
+  <div class="section">
+    <div class="section-header fade-in" style="display:flex; justify-content:space-between; align-items:flex-end;">
+      <div>
+        <div class="section-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Dự Án Tiêu Biểu</span></div>
+        <h2 class="section-title">Công trình<br><em>đã thực hiện</em></h2>
+      </div>
+      <button class="btn-gold" onclick="showPage('projects')">Xem tất cả</button>
+    </div>
+    <div class="projects-masonry fade-in">
+      <div class="project-card large">
+        <div class="project-thumb" style="font-size:80px;">🏠
+          <div class="project-overlay"><span class="project-overlay-text">Xem chi tiết →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Biệt thự · Vinhomes Grand Park</div>
+          <div class="project-name">Thi Công Mới Biệt Thự Vinhomes</div>
+          <div class="project-meta">Đã hoàn thành · Công ty SCC</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb">🛋️
+          <div class="project-overlay"><span class="project-overlay-text">Xem →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Căn hộ · Thu Thiêm Dragon</div>
+          <div class="project-name">Fitout Nội Thất Căn Hộ</div>
+          <div class="project-meta">Đã hoàn thành · SCC</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb">🏢
+          <div class="project-overlay"><span class="project-overlay-text">Xem →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Thương mại · Q1</div>
+          <div class="project-name">Cải Tạo Biệt Thự Nguyễn Thành Ý</div>
+          <div class="project-meta">Đã hoàn thành · SCC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS PREVIEW -->
+  <div style="background:var(--dark); padding:100px 0;">
+    <div class="section" style="padding-top:0; padding-bottom:0;">
+      <div class="section-header fade-in">
+        <div class="section-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Quy Trình</span></div>
+        <h2 class="section-title-light">Làm việc <em>chuyên nghiệp</em></h2>
+      </div>
+      <div class="process-steps fade-in">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <div class="step-title" style="color:var(--cream)">Tiếp nhận</div>
+          <div class="step-desc">Lắng nghe yêu cầu và mong muốn của khách hàng</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <div class="step-title" style="color:var(--cream)">Khảo sát</div>
+          <div class="step-desc">Đo đạc, đánh giá hiện trạng tại công trình</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <div class="step-title" style="color:var(--cream)">Báo giá</div>
+          <div class="step-desc">Lập dự toán chi tiết, minh bạch từng hạng mục</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <div class="step-title" style="color:var(--cream)">Thi công</div>
+          <div class="step-desc">Triển khai theo đúng tiến độ và cam kết chất lượng</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">05</div>
+          <div class="step-title" style="color:var(--cream)">Bàn giao</div>
+          <div class="step-desc">Nghiệm thu, bàn giao và bảo hành công trình</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:var(--gold-pale); padding:80px;">
+    <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:var(--dark);">Bắt đầu dự án của bạn <em style="font-style:italic; color:var(--gold);">ngay hôm nay</em></h2>
+        <p style="font-size:14px; color:var(--text-light); margin-top:12px;">Khảo sát miễn phí · Báo giá trong 5 phút · Bảo hành 24 tháng</p>
+      </div>
+      <button class="btn-gold" onclick="showPage('contact')" style="white-space:nowrap; font-size:14px; padding:16px 40px;">Liên hệ ngay</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:0;">
+          <div class="logo-mark">SCC</div>
+          <div class="logo-text">
+            <div class="logo-name">SCC CONSTRUCTION</div>
+            <div class="logo-sub">Xây dựng · Cải tạo · Nội thất</div>
+          </div>
+        </div>
+        <p>Chuyên sửa chữa, cải tạo và thi công nội thất nhà ở, căn hộ, văn phòng và kho xưởng tại TP.HCM.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Dịch vụ</h4>
+        <ul>
+          <li><a onclick="showPage('services')">Sửa chữa nhà</a></li>
+          <li><a onclick="showPage('services')">Cải tạo toàn bộ</a></li>
+          <li><a onclick="showPage('services')">Thi công nội thất</a></li>
+          <li><a onclick="showPage('services')">Văn phòng</a></li>
+          <li><a onclick="showPage('services')">Kho xưởng</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Công ty</h4>
+        <ul>
+          <li><a onclick="showPage('about')">Giới thiệu</a></li>
+          <li><a onclick="showPage('projects')">Dự án</a></li>
+          <li><a onclick="showPage('process')">Quy trình</a></li>
+          <li><a onclick="showPage('blog')">Blog</a></li>
+          <li><a onclick="showPage('contact')">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <ul>
+          <li><a href="tel:0379388493">📞 0379 388 493</a></li>
+          <li><a href="tel:0914917579">📞 0914 917 579</a></li>
+          <li><a>💬 Zalo OA</a></li>
+          <li><a>📘 Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Công Ty TNHH Xây Dựng SCC. Tất cả quyền được bảo lưu.</p>
+      <p class="mst">MST: 0317712630</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ==================== DỊCH VỤ ==================== -->
+<div id="page-services" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow"><div class="hero-line"></div>Dịch Vụ</div>
+      <h1 class="page-hero-title">Giải pháp xây dựng<br><em>toàn diện</em></h1>
+      <div class="breadcrumb">Trang chủ <span>›</span> Dịch vụ</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <div class="service-icon">🔨</div>
+        <h3 class="service-title">Sửa Chữa Nhà</h3>
+        <p class="service-desc">Khắc phục nhanh chóng các hỏng hóc, thấm dột, xuống cấp trong nhà ở.</p>
+        <ul class="service-items">
+          <li>Chống thấm, chống dột</li>
+          <li>Sơn sửa tường, trần nhà</li>
+          <li>Hệ thống điện nước</li>
+          <li>Lát gạch, ốp tường</li>
+          <li>Sửa cửa, mái nhà</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <div class="service-icon">🏗️</div>
+        <h3 class="service-title">Cải Tạo & Nâng Cấp</h3>
+        <p class="service-desc">Cải tạo toàn diện không gian sống theo phong cách hiện đại.</p>
+        <ul class="service-items">
+          <li>Mở rộng diện tích</li>
+          <li>Nâng tầng, cơi nới</li>
+          <li>Thay đổi mặt bằng</li>
+          <li>Cải tạo hệ thống kỹ thuật</li>
+          <li>Sơn nước toàn bộ</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <div class="service-icon">🛋️</div>
+        <h3 class="service-title">Thi Công Nội Thất</h3>
+        <p class="service-desc">Thiết kế và thi công nội thất trọn gói theo yêu cầu.</p>
+        <ul class="service-items">
+          <li>Tủ bếp, tủ âm tường</li>
+          <li>Trần thạch cao, vách ngăn</li>
+          <li>Sàn gỗ, vinyl</li>
+          <li>Cửa nhôm kính</li>
+          <li>Đèn chiếu sáng</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <div class="service-icon">🏢</div>
+        <h3 class="service-title">Văn Phòng & Thương Mại</h3>
+        <p class="service-desc">Thi công văn phòng, showroom, cửa hàng chuyên nghiệp.</p>
+        <ul class="service-items">
+          <li>Vách ngăn văn phòng</li>
+          <li>Trần thả, đèn chiếu sáng</li>
+          <li>Sàn epoxy, vinyl tile</li>
+          <li>Biển hiệu, decal</li>
+          <li>Hệ thống điều hòa</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num">05</span>
+        <div class="service-icon">🏭</div>
+        <h3 class="service-title">Kho Xưởng & Công Nghiệp</h3>
+        <p class="service-desc">Xây dựng và cải tạo kho bãi, nhà xưởng sản xuất.</p>
+        <ul class="service-items">
+          <li>Mái tôn, kết cấu thép</li>
+          <li>Sàn bê tông công nghiệp</li>
+          <li>Hệ thống PCCC</li>
+          <li>Điện 3 pha</li>
+          <li>Hệ thống thoát nước</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num">06</span>
+        <div class="service-icon">📐</div>
+        <h3 class="service-title">Tư Vấn & Thiết Kế</h3>
+        <p class="service-desc">Tư vấn giải pháp kỹ thuật và thiết kế bản vẽ thi công.</p>
+        <ul class="service-items">
+          <li>Khảo sát, đo đạc</li>
+          <li>Bản vẽ kỹ thuật</li>
+          <li>Dự toán chi phí</li>
+          <li>Quản lý thi công</li>
+          <li>Giám sát chất lượng</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--gold-pale); padding:80px;">
+    <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--dark);">Cần tư vấn dịch vụ?</h2>
+        <p style="font-size:14px; color:var(--text-light); margin-top:8px;">Gọi ngay để được khảo sát miễn phí tại nhà</p>
+      </div>
+      <button class="btn-gold" onclick="showPage('contact')">Liên hệ ngay</button>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-name" style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:2px;">SCC CONSTRUCTION</div>
+        <p>Chuyên sửa chữa, cải tạo và thi công nội thất tại TP.HCM.</p>
+      </div>
+      <div class="footer-col"><h4>Liên kết</h4><ul>
+        <li><a onclick="showPage('home')">Trang chủ</a></li>
+        <li><a onclick="showPage('projects')">Dự án</a></li>
+        <li><a onclick="showPage('pricing')">Bảng giá</a></li>
+        <li><a onclick="showPage('contact')">Liên hệ</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Hotline</h4><ul>
+        <li><a>0379 388 493</a></li>
+        <li><a>0914 917 579</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>MST</h4><ul><li><a>0317712630</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Công Ty TNHH Xây Dựng SCC</p>
+      <p class="mst">MST: 0317712630</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ==================== DỰ ÁN ==================== -->
+<div id="page-projects" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow"><div class="hero-line"></div>Dự Án</div>
+      <h1 class="page-hero-title">Công trình<br><em>tiêu biểu</em></h1>
+      <div class="breadcrumb">Trang chủ <span>›</span> Dự án</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="projects-filter">
+      <button class="filter-btn active" onclick="filterProjects(this, 'all')">Tất cả</button>
+      <button class="filter-btn" onclick="filterProjects(this, 'nha-o')">Nhà ở</button>
+      <button class="filter-btn" onclick="filterProjects(this, 'can-ho')">Căn hộ</button>
+      <button class="filter-btn" onclick="filterProjects(this, 'biet-thu')">Biệt thự</button>
+      <button class="filter-btn" onclick="filterProjects(this, 'thuong-mai')">Thương mại</button>
+      <button class="filter-btn" onclick="filterProjects(this, 'kho-xuong')">Kho xưởng</button>
+    </div>
+    <div class="projects-masonry" id="projects-grid">
+      <div class="project-card large" data-cat="biet-thu">
+        <div class="project-thumb" style="font-size:80px; background:linear-gradient(135deg,#2A2520,#3D3830);">🏠
+          <div class="project-overlay"><span class="project-overlay-text">Xem chi tiết →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Biệt thự · Vinhomes Grand Park</div>
+          <div class="project-name">Thi Công Mới Biệt Thự Vinhomes Grand Park</div>
+          <div class="project-meta">Diện tích 280m² · Đã hoàn thành</div>
+        </div>
+      </div>
+      <div class="project-card" data-cat="can-ho">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#252119,#3D3830);">🛋️
+          <div class="project-overlay"><span class="project-overlay-text">Xem →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Căn hộ · Thu Thiêm Dragon</div>
+          <div class="project-name">Fitout Nội Thất Căn Hộ Thu Thiêm</div>
+          <div class="project-meta">82m² · Đã hoàn thành</div>
+        </div>
+      </div>
+      <div class="project-card" data-cat="nha-o">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1A1714,#2A2520);">🏗️
+          <div class="project-overlay"><span class="project-overlay-text">Xem →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Nhà ở · Thủ Đức</div>
+          <div class="project-name">Cải Tạo Nhà Chủ Thống · Thủ Đức</div>
+          <div class="project-meta">120m² · Đã hoàn thành</div>
+        </div>
+      </div>
+      <div class="project-card" data-cat="nha-o">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#2C2820,#1A1714);">🔨
+          <div class="project-overlay"><span class="project-overlay-text">Xem →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Nhà ở · Bình Quới</div>
+          <div class="project-name">Cải Tạo Nhà Chị Thủy · Bình Quới</div>
+          <div class="project-meta">95m² · Đã hoàn thành</div>
+        </div>
+      </div>
+      <div class="project-card" data-cat="can-ho">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#3D3830,#2A2520);">🛏️
+          <div class="project-overlay"><span class="project-overlay-text">Xem →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Căn hộ · Himlam Phú Đông</div>
+          <div class="project-name">Nội Thất Căn Hộ Himlam Phú Đông</div>
+          <div class="project-meta">75m² · Đã hoàn thành</div>
+        </div>
+      </div>
+      <div class="project-card large" data-cat="thuong-mai">
+        <div class="project-thumb" style="font-size:80px; background:linear-gradient(135deg,#252119,#1A1714);">📚
+          <div class="project-overlay"><span class="project-overlay-text">Xem chi tiết →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Thương mại · Reading Q</div>
+          <div class="project-name">Thi Công Nội Thất Trung Tâm Tiếng Anh Reading</div>
+          <div class="project-meta">200m² · Đã hoàn thành</div>
+        </div>
+      </div>
+      <div class="project-card" data-cat="kho-xuong">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1A1714,#3D3830);">🏭
+          <div class="project-overlay"><span class="project-overlay-text">Xem →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Kho xưởng · Nhà máy Jotun</div>
+          <div class="project-name">Cải Tạo Khu Nhà Admin Nhà Máy Sơn Jotun</div>
+          <div class="project-meta">Đã hoàn thành</div>
+        </div>
+      </div>
+      <div class="project-card" data-cat="biet-thu">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#2A2520,#252119);">🌿
+          <div class="project-overlay"><span class="project-overlay-text">Xem →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Biệt thự · Q2</div>
+          <div class="project-name">Thi Công Sân Vườn Biệt Thự Q2</div>
+          <div class="project-meta">Đã hoàn thành</div>
+        </div>
+      </div>
+      <div class="project-card" data-cat="nha-o">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#3D3830,#1A1714);">🏠
+          <div class="project-overlay"><span class="project-overlay-text">Xem →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Nhà ở · Bình Chánh</div>
+          <div class="project-name">Xây Mới Nhà Phố · Bình Chánh</div>
+          <div class="project-meta">Đã hoàn thành</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-name" style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:2px;">SCC CONSTRUCTION</div><p>Chuyên sửa chữa, cải tạo và thi công nội thất tại TP.HCM.</p></div>
+      <div class="footer-col"><h4>Liên kết</h4><ul><li><a onclick="showPage('home')">Trang chủ</a></li><li><a onclick="showPage('services')">Dịch vụ</a></li><li><a onclick="showPage('pricing')">Bảng giá</a></li><li><a onclick="showPage('contact')">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Hotline</h4><ul><li><a>0379 388 493</a></li><li><a>0914 917 579</a></li></ul></div>
+      <div class="footer-col"><h4>MST</h4><ul><li><a>0317712630</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Công Ty TNHH Xây Dựng SCC</p><p class="mst">MST: 0317712630</p></div>
+  </footer>
+</div>
+
+<!-- ==================== BẢNG GIÁ ==================== -->
+<div id="page-pricing" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow"><div class="hero-line"></div>Bảng Giá</div>
+      <h1 class="page-hero-title">Giá dịch vụ<br><em>tham khảo</em></h1>
+      <div class="breadcrumb">Trang chủ <span>›</span> Bảng giá</div>
+    </div>
+  </div>
+  <div class="pricing-bg" style="padding-top:0; margin-top:-1px;">
+    <div class="pricing-inner">
+      <div style="text-align:center; padding-top:80px; margin-bottom:0;">
+        <p style="font-size:14px; color:rgba(248,244,238,0.5); max-width:560px; margin:0 auto; line-height:1.9;">Giá thực tế phụ thuộc vào diện tích, vật liệu và yêu cầu cụ thể. Liên hệ để được báo giá chính xác miễn phí sau khảo sát.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-type">Gói Cơ Bản</div>
+          <div class="pricing-name">Sửa Chữa Nhỏ</div>
+          <p class="pricing-desc">Dành cho các công việc sửa chữa đơn lẻ, khắc phục sự cố.</p>
+          <div class="pricing-price">1–3tr</div>
+          <div class="pricing-unit">/ hạng mục</div>
+          <ul class="pricing-features">
+            <li>Sơn sửa tường cục bộ</li>
+            <li>Sửa điện, nước nhỏ</li>
+            <li>Lát gạch bổ sung</li>
+            <li>Bảo hành 12 tháng</li>
+          </ul>
+          <button class="btn-gold-outline" onclick="showPage('contact')">Yêu cầu báo giá</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Phổ biến nhất</div>
+          <div class="pricing-type">Gói Trọn Gói</div>
+          <div class="pricing-name">Cải Tạo Toàn Bộ</div>
+          <p class="pricing-desc">Cải tạo hoàn toàn không gian theo thiết kế mới.</p>
+          <div class="pricing-price">3–7tr</div>
+          <div class="pricing-unit">/ m²</div>
+          <ul class="pricing-features">
+            <li>Khảo sát + thiết kế miễn phí</li>
+            <li>Thi công hoàn thiện</li>
+            <li>Vật tư chính hãng</li>
+            <li>Bảo hành 24 tháng</li>
+            <li>Quản lý tiến độ</li>
+          </ul>
+          <button class="btn-gold" onclick="showPage('contact')" style="width:100%; display:block; text-align:center; padding:14px;">Đặt lịch khảo sát</button>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-type">Gói Cao Cấp</div>
+          <div class="pricing-name">Nội Thất Trọn Gói</div>
+          <p class="pricing-desc">Thi công nội thất đầy đủ từ thiết kế đến hoàn thiện.</p>
+          <div class="pricing-price">7–15tr</div>
+          <div class="pricing-unit">/ m²</div>
+          <ul class="pricing-features">
+            <li>Thiết kế 3D miễn phí</li>
+            <li>Tủ bếp, tủ âm tường</li>
+            <li>Sàn gỗ, trần thạch cao</li>
+            <li>Đèn, điện hoàn thiện</li>
+            <li>Bảo hành 24 tháng</li>
+          </ul>
+          <button class="btn-gold-outline" onclick="showPage('contact')">Yêu cầu báo giá</button>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:32px; font-size:12px; color:rgba(248,244,238,0.25);">* Giá chưa bao gồm vật tư. Báo giá chính xác sau khi khảo sát thực tế.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-name" style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:2px;">SCC CONSTRUCTION</div><p>Chuyên sửa chữa, cải tạo và thi công nội thất tại TP.HCM.</p></div>
+      <div class="footer-col"><h4>Liên kết</h4><ul><li><a onclick="showPage('home')">Trang chủ</a></li><li><a onclick="showPage('services')">Dịch vụ</a></li><li><a onclick="showPage('projects')">Dự án</a></li><li><a onclick="showPage('contact')">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Hotline</h4><ul><li><a>0379 388 493</a></li><li><a>0914 917 579</a></li></ul></div>
+      <div class="footer-col"><h4>MST</h4><ul><li><a>0317712630</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Công Ty TNHH Xây Dựng SCC</p><p class="mst">MST: 0317712630</p></div>
+  </footer>
+</div>
+
+<!-- ==================== QUY TRÌNH ==================== -->
+<div id="page-process" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow"><div class="hero-line"></div>Quy Trình</div>
+      <h1 class="page-hero-title">Làm việc<br><em>chuyên nghiệp</em></h1>
+      <div class="breadcrumb">Trang chủ <span>›</span> Quy trình</div>
+    </div>
+  </div>
+  <div class="section">
+    <div style="max-width:900px; margin:0 auto;">
+      <div style="display:flex; flex-direction:column; gap:0;">
+        <div style="display:grid; grid-template-columns:80px 1fr; gap:40px; padding-bottom:56px; position:relative;">
+          <div style="position:relative;">
+            <div class="step-num" style="margin:0;">01</div>
+            <div style="position:absolute; top:64px; left:50%; width:1px; height:calc(100% - 64px); background:linear-gradient(to bottom, var(--gold), transparent); transform:translateX(-50%);"></div>
+          </div>
+          <div>
+            <h3 style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--dark); margin-bottom:16px;">Tiếp nhận yêu cầu</h3>
+            <p style="font-size:14px; color:var(--text-light); line-height:1.9; margin-bottom:16px;">Khách hàng liên hệ qua điện thoại, Zalo hoặc form website. Đội ngũ tư vấn sẽ lắng nghe và ghi nhận đầy đủ nhu cầu, mong muốn cũng như ngân sách dự kiến.</p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <span style="background:var(--gold-pale); color:var(--gold); font-size:11px; padding:4px 12px; letter-spacing:1px;">Hotline</span>
+              <span style="background:var(--gold-pale); color:var(--gold); font-size:11px; padding:4px 12px; letter-spacing:1px;">Zalo</span>
+              <span style="background:var(--gold-pale); color:var(--gold); font-size:11px; padding:4px 12px; letter-spacing:1px;">Form online</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:80px 1fr; gap:40px; padding-bottom:56px; position:relative;">
+          <div style="position:relative;">
+            <div class="step-num" style="margin:0;">02</div>
+            <div style="position:absolute; top:64px; left:50%; width:1px; height:calc(100% - 64px); background:linear-gradient(to bottom, var(--gold), transparent); transform:translateX(-50%);"></div>
+          </div>
+          <div>
+            <h3 style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--dark); margin-bottom:16px;">Khảo sát miễn phí</h3>
+            <p style="font-size:14px; color:var(--text-light); line-height:1.9;">Kỹ thuật viên đến tận công trình trong vòng 24 giờ để đo đạc, đánh giá hiện trạng, tư vấn giải pháp phù hợp nhất với ngân sách và yêu cầu của khách hàng.</p>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:80px 1fr; gap:40px; padding-bottom:56px; position:relative;">
+          <div style="position:relative;">
+            <div class="step-num" style="margin:0;">03</div>
+            <div style="position:absolute; top:64px; left:50%; width:1px; height:calc(100% - 64px); background:linear-gradient(to bottom, var(--gold), transparent); transform:translateX(-50%);"></div>
+          </div>
+          <div>
+            <h3 style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--dark); margin-bottom:16px;">Báo giá & ký hợp đồng</h3>
+            <p style="font-size:14px; color:var(--text-light); line-height:1.9;">Lập dự toán chi tiết từng hạng mục trong vòng 5 phút sau khảo sát. Hợp đồng minh bạch, quy định rõ tiến độ, phương thức thanh toán và chính sách bảo hành.</p>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:80px 1fr; gap:40px; padding-bottom:56px; position:relative;">
+          <div style="position:relative;">
+            <div class="step-num" style="margin:0;">04</div>
+            <div style="position:absolute; top:64px; left:50%; width:1px; height:calc(100% - 64px); background:linear-gradient(to bottom, var(--gold), transparent); transform:translateX(-50%);"></div>
+          </div>
+          <div>
+            <h3 style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--dark); margin-bottom:16px;">Triển khai thi công</h3>
+            <p style="font-size:14px; color:var(--text-light); line-height:1.9;">Đội ngũ thợ lành nghề thi công theo đúng bản vẽ và tiêu chuẩn kỹ thuật. Giám sát chất lượng liên tục, báo cáo tiến độ định kỳ cho khách hàng.</p>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:80px 1fr; gap:40px;">
+          <div>
+            <div class="step-num" style="margin:0; background:var(--gold); color:var(--dark); border-color:var(--gold);">05</div>
+          </div>
+          <div>
+            <h3 style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--dark); margin-bottom:16px;">Bàn giao & bảo hành</h3>
+            <p style="font-size:14px; color:var(--text-light); line-height:1.9;">Nghiệm thu công trình cùng khách hàng, bàn giao đầy đủ hồ sơ và hướng dẫn sử dụng. Bảo hành từ 12–24 tháng tùy hạng mục, hỗ trợ bảo trì dài hạn.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-name" style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:2px;">SCC CONSTRUCTION</div><p>Chuyên sửa chữa, cải tạo và thi công nội thất tại TP.HCM.</p></div>
+      <div class="footer-col"><h4>Liên kết</h4><ul><li><a onclick="showPage('home')">Trang chủ</a></li><li><a onclick="showPage('services')">Dịch vụ</a></li><li><a onclick="showPage('projects')">Dự án</a></li><li><a onclick="showPage('contact')">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Hotline</h4><ul><li><a>0379 388 493</a></li><li><a>0914 917 579</a></li></ul></div>
+      <div class="footer-col"><h4>MST</h4><ul><li><a>0317712630</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Công Ty TNHH Xây Dựng SCC</p><p class="mst">MST: 0317712630</p></div>
+  </footer>
+</div>
+
+<!-- ==================== GIỚI THIỆU ==================== -->
+<div id="page-about" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow"><div class="hero-line"></div>Giới Thiệu</div>
+      <h1 class="page-hero-title">Về Công Ty<br><em>SCC</em></h1>
+      <div class="breadcrumb">Trang chủ <span>›</span> Giới thiệu</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Câu Chuyện Của Chúng Tôi</span></div>
+        <h2 class="section-title">Hơn 8 năm<br><em>kiến tạo ước mơ</em></h2>
+        <div class="gold-divider"></div>
+        <p style="font-size:15px; color:var(--text-light); line-height:1.9; margin-bottom:24px;">Công ty TNHH Xây Dựng SCC được thành lập với sứ mệnh mang đến những công trình chất lượng cao, đáp ứng đầy đủ nhu cầu của khách hàng tại TP.HCM.</p>
+        <p style="font-size:15px; color:var(--text-light); line-height:1.9; margin-bottom:40px;">Với đội ngũ kỹ thuật viên lành nghề và kinh nghiệm thực chiến, chúng tôi tự hào đã hoàn thành hơn 500 công trình từ nhà ở, căn hộ, văn phòng đến kho xưởng.</p>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+          <div style="text-align:center; padding:24px; background:var(--cream2);">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:600; color:var(--gold);">500+</div>
+            <div style="font-size:12px; color:var(--text-pale); margin-top:4px; letter-spacing:1px;">DỰ ÁN</div>
+          </div>
+          <div style="text-align:center; padding:24px; background:var(--cream2);">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:600; color:var(--gold);">8+</div>
+            <div style="font-size:12px; color:var(--text-pale); margin-top:4px; letter-spacing:1px;">NĂM KN</div>
+          </div>
+          <div style="text-align:center; padding:24px; background:var(--cream2);">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:600; color:var(--gold);">98%</div>
+            <div style="font-size:12px; color:var(--text-pale); margin-top:4px; letter-spacing:1px;">HÀI LÒNG</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-main-img">🏗️</div>
+        <div class="about-sub-img" style="display:flex;align-items:center;justify-content:center;font-size:40px;">🏠</div>
+        <div class="about-badge">
+          <div class="badge-num">SCC</div>
+          <div class="badge-text">SINCE<br>2016</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div style="background:var(--dark); padding:100px 0;">
+    <div class="section" style="padding-top:0; padding-bottom:0;">
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:32px;">
+        <div style="border-top:1px solid var(--gold); padding-top:32px;">
+          <div style="font-size:32px; margin-bottom:20px;">🎯</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--cream); margin-bottom:12px;">Tận Tâm</h3>
+          <p style="font-size:13px; color:rgba(248,244,238,0.45); line-height:1.8;">Lắng nghe và thấu hiểu từng yêu cầu của khách hàng để mang lại giải pháp tốt nhất.</p>
+        </div>
+        <div style="border-top:1px solid var(--gold); padding-top:32px;">
+          <div style="font-size:32px; margin-bottom:20px;">⚡</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--cream); margin-bottom:12px;">Nhanh Chóng</h3>
+          <p style="font-size:13px; color:rgba(248,244,238,0.45); line-height:1.8;">Tiến độ thi công đúng hạn, báo giá trong 5 phút, khảo sát trong 24 giờ.</p>
+        </div>
+        <div style="border-top:1px solid var(--gold); padding-top:32px;">
+          <div style="font-size:32px; margin-bottom:20px;">💎</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--cream); margin-bottom:12px;">Chất Lượng</h3>
+          <p style="font-size:13px; color:rgba(248,244,238,0.45); line-height:1.8;">Vật liệu chính hãng, tay nghề cao, kiểm soát chất lượng từng khâu thi công.</p>
+        </div>
+        <div style="border-top:1px solid var(--gold); padding-top:32px;">
+          <div style="font-size:32px; margin-bottom:20px;">🤝</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--cream); margin-bottom:12px;">Minh Bạch</h3>
+          <p style="font-size:13px; color:rgba(248,244,238,0.45); line-height:1.8;">Hợp đồng rõ ràng, báo giá chi tiết, không phát sinh chi phí ngoài cam kết.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-name" style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:2px;">SCC CONSTRUCTION</div><p>Chuyên sửa chữa, cải tạo và thi công nội thất tại TP.HCM.</p></div>
+      <div class="footer-col"><h4>Liên kết</h4><ul><li><a onclick="showPage('home')">Trang chủ</a></li><li><a onclick="showPage('services')">Dịch vụ</a></li><li><a onclick="showPage('projects')">Dự án</a></li><li><a onclick="showPage('contact')">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Hotline</h4><ul><li><a>0379 388 493</a></li><li><a>0914 917 579</a></li></ul></div>
+      <div class="footer-col"><h4>MST</h4><ul><li><a>0317712630</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Công Ty TNHH Xây Dựng SCC</p><p class="mst">MST: 0317712630</p></div>
+  </footer>
+</div>
+
+<!-- ==================== BLOG ==================== -->
+<div id="page-blog" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow"><div class="hero-line"></div>Blog</div>
+      <h1 class="page-hero-title">Kiến thức<br><em>xây dựng</em></h1>
+      <div class="breadcrumb">Trang chủ <span>›</span> Blog</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="blog-grid">
+      <div class="blog-main">
+        <div class="blog-main-thumb">🏠</div>
+        <div class="blog-tag">Kiến thức · Cải tạo</div>
+        <h2 class="blog-title">Chi phí cải tạo nhà phố 2025: Bảng giá chi tiết từ A đến Z</h2>
+        <p class="blog-excerpt">Tổng hợp chi phí cải tạo nhà phố mới nhất năm 2025, bao gồm chi phí vật liệu, nhân công và các hạng mục phổ biến. Giúp bạn lập kế hoạch ngân sách chính xác trước khi bắt đầu dự án...</p>
+        <div style="margin-top:24px; display:flex; align-items:center; gap:16px;">
+          <span style="font-size:12px; color:var(--text-pale);">15/03/2025</span>
+          <span style="font-size:12px; color:var(--gold); cursor:pointer;">Đọc tiếp →</span>
+        </div>
+      </div>
+      <div class="blog-sidebar">
+        <div class="blog-item">
+          <div class="blog-item-thumb">🔨</div>
+          <div>
+            <div class="blog-item-title">5 dấu hiệu nhà cần sửa chữa ngay</div>
+            <div class="blog-item-date">10/03/2025</div>
+          </div>
+        </div>
+        <div class="blog-item">
+          <div class="blog-item-thumb">🛋️</div>
+          <div>
+            <div class="blog-item-title">Phong cách nội thất phù hợp với nhà phố Việt Nam</div>
+            <div class="blog-item-date">05/03/2025</div>
+          </div>
+        </div>
+        <div class="blog-item">
+          <div class="blog-item-thumb">💧</div>
+          <div>
+            <div class="blog-item-title">Chống thấm nhà mùa mưa: Giải pháp hiệu quả</div>
+            <div class="blog-item-date">28/02/2025</div>
+          </div>
+        </div>
+        <div class="blog-item">
+          <div class="blog-item-thumb">📐</div>
+          <div>
+            <div class="blog-item-title">Thiết kế căn hộ 50m² vừa đẹp vừa tiết kiệm</div>
+            <div class="blog-item-date">20/02/2025</div>
+          </div>
+        </div>
+        <div class="blog-item">
+          <div class="blog-item-thumb">🏗️</div>
+          <div>
+            <div class="blog-item-title">Quy trình thi công nội thất đúng chuẩn</div>
+            <div class="blog-item-date">15/02/2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MORE POSTS -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; padding-top:48px; border-top:1px solid var(--cream2);">
+      <div>
+        <div style="height:200px; background:var(--cream2); display:flex; align-items:center; justify-content:center; font-size:48px; margin-bottom:16px;">🏠</div>
+        <div class="blog-tag">Xây dựng</div>
+        <h3 class="blog-title" style="font-size:20px; margin-top:8px;">Xây nhà trọn gói hay tự mua vật liệu?</h3>
+        <p style="font-size:13px; color:var(--text-pale); margin-top:8px; line-height:1.7;">So sánh ưu nhược điểm để giúp bạn quyết định đúng đắn...</p>
+      </div>
+      <div>
+        <div style="height:200px; background:var(--cream2); display:flex; align-items:center; justify-content:center; font-size:48px; margin-bottom:16px;">🎨</div>
+        <div class="blog-tag">Nội thất</div>
+        <h3 class="blog-title" style="font-size:20px; margin-top:8px;">Xu hướng màu sơn nhà 2025</h3>
+        <p style="font-size:13px; color:var(--text-pale); margin-top:8px; line-height:1.7;">Những tông màu được ưa chuộng nhất trong thiết kế nhà ở năm nay...</p>
+      </div>
+      <div>
+        <div style="height:200px; background:var(--cream2); display:flex; align-items:center; justify-content:center; font-size:48px; margin-bottom:16px;">⚡</div>
+        <div class="blog-tag">Kỹ thuật</div>
+        <h3 class="blog-title" style="font-size:20px; margin-top:8px;">Hệ thống điện nhà ở: Những điều cần biết</h3>
+        <p style="font-size:13px; color:var(--text-pale); margin-top:8px; line-height:1.7;">Hướng dẫn thiết kế và thi công hệ thống điện an toàn...</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-name" style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:2px;">SCC CONSTRUCTION</div><p>Chuyên sửa chữa, cải tạo và thi công nội thất tại TP.HCM.</p></div>
+      <div class="footer-col"><h4>Liên kết</h4><ul><li><a onclick="showPage('home')">Trang chủ</a></li><li><a onclick="showPage('services')">Dịch vụ</a></li><li><a onclick="showPage('projects')">Dự án</a></li><li><a onclick="showPage('contact')">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Hotline</h4><ul><li><a>0379 388 493</a></li><li><a>0914 917 579</a></li></ul></div>
+      <div class="footer-col"><h4>MST</h4><ul><li><a>0317712630</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Công Ty TNHH Xây Dựng SCC</p><p class="mst">MST: 0317712630</p></div>
+  </footer>
+</div>
+
+<!-- ==================== LIÊN HỆ ==================== -->
+<div id="page-contact" class="page">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow"><div class="hero-line"></div>Liên Hệ</div>
+      <h1 class="page-hero-title">Đặt lịch<br><em>khảo sát miễn phí</em></h1>
+      <div class="breadcrumb">Trang chủ <span>›</span> Liên hệ</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="contact-grid">
+      <div>
+        <div class="section-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Thông Tin Liên Hệ</span></div>
+        <h2 class="section-title">Chúng tôi<br><em>luôn sẵn sàng</em></h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Liên hệ ngay để được tư vấn miễn phí và nhận báo giá chi tiết trong vòng 5 phút.</p>
+        <div class="contact-item" style="margin-top:40px;">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Địa chỉ</div>
+            <div class="contact-value">79/4 Đường Trần Thị Vững</div>
+            <div class="contact-sub">Phường Linh Xuân, TP.HCM</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Hotline</div>
+            <div class="contact-value">0379 388 493</div>
+            <div class="contact-sub">0914 917 579 · 7:00 – 20:00</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div>
+            <div class="contact-label">Zalo OA</div>
+            <div class="contact-value">Sửa chữa & cải tạo nhà SCC</div>
+            <div class="contact-sub">Phản hồi trong 5 phút</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🏢</div>
+          <div>
+            <div class="contact-label">Mã số thuế</div>
+            <div class="contact-value">0317712630</div>
+            <div class="contact-sub">Công ty TNHH Xây Dựng SCC</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-wrapper">
+        <div class="form-title">Gửi yêu cầu<br>báo giá ngay</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Họ và tên *</label>
+            <input type="text" placeholder="Nguyễn Văn A">
+          </div>
+          <div class="form-group">
+            <label>Số điện thoại *</label>
+            <input type="tel" placeholder="0909 xxx xxx">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Địa chỉ công trình</label>
+          <input type="text" placeholder="Số nhà, đường, phường, quận...">
+        </div>
+        <div class="form-group">
+          <label>Loại dịch vụ</label>
+          <select>
+            <option value="">Chọn dịch vụ...</option>
+            <option>Sửa chữa nhà</option>
+            <option>Cải tạo toàn bộ</option>
+            <option>Thi công nội thất</option>
+            <option>Văn phòng / Thương mại</option>
+            <option>Kho xưởng</option>
+            <option>Khác</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mô tả yêu cầu</label>
+          <textarea placeholder="Mô tả chi tiết công việc cần thực hiện..."></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('Cảm ơn! Chúng tôi sẽ liên hệ lại trong vòng 30 phút.')">GỬI YÊU CẦU BÁO GIÁ</button>
+        <p style="font-size:11px; color:rgba(248,244,238,0.3); text-align:center; margin-top:16px;">Phản hồi trong 30 phút trong giờ hành chính</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-name" style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:2px;">SCC CONSTRUCTION</div><p>Chuyên sửa chữa, cải tạo và thi công nội thất tại TP.HCM.</p></div>
+      <div class="footer-col"><h4>Liên kết</h4><ul><li><a onclick="showPage('home')">Trang chủ</a></li><li><a onclick="showPage('services')">Dịch vụ</a></li><li><a onclick="showPage('projects')">Dự án</a></li><li><a onclick="showPage('pricing')">Bảng giá</a></li></ul></div>
+      <div class="footer-col"><h4>Hotline</h4><ul><li><a>0379 388 493</a></li><li><a>0914 917 579</a></li></ul></div>
+      <div class="footer-col"><h4>MST</h4><ul><li><a>0317712630</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Công Ty TNHH Xây Dựng SCC</p><p class="mst">MST: 0317712630</p></div>
+  </footer>
+</div>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-btns">
+  <a href="tel:0379388493" class="float-btn float-phone">
+    📞
+    <span class="float-tip">0379 388 493</span>
+  </a>
+  <a href="#" class="float-btn float-zalo">
+    💬
+    <span class="float-tip">Nhắn Zalo ngay</span>
+  </a>
+</div>
+
+<script>
+function showPage(id) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // Show target
+  document.getElementById('page-' + id).classList.add('active');
+  // Update nav
+  document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-' + id);
+  if (navEl) navEl.classList.add('active');
+  // Scroll to top
+  window.scrollTo(0, 0);
+  // Trigger animations
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.classList.remove('visible');
+    });
+    setTimeout(() => {
+      observeFadeIns();
+    }, 50);
+  }, 50);
+}
+
+function filterProjects(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.project-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function observeFadeIns() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+}
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 20) {
+    nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.08)';
+  } else {
+    nav.style.boxShadow = 'none';
+  }
+});
+
+observeFadeIns();
+</script>
+</body>
+</html>
