@@ -741,7 +741,7 @@ window.addEventListener('load', function() {
 <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Anh thay bằng Public Key từ EmailJS
+emailjs.init("NrkuXf-iBAh3TVqVc");
 
 function sendForm() {
   const name = document.getElementById('f-name').value;
@@ -759,7 +759,7 @@ function sendForm() {
   btn.textContent = 'ĐANG GỬI...';
   btn.disabled = true;
 
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+  emailjs.send("service_eciry1n", "template_77m314f", {
     from_name: name,
     phone: phone,
     address: address,
