@@ -6,59 +6,104 @@
 <title>SCC - Công Ty TNHH Xây Dựng SCC</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ... (Giữ nguyên phần CSS ban đầu của bạn để đảm bảo giao diện không đổi) ... */
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { background:#fff; color:#1a1a1a; font-family:'Jost',sans-serif; font-weight:300; font-size:16px; }
-nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(255,255,255,0.97); border-bottom:1px solid #e8e0d4; backdrop-filter:blur(10px); }
-.nav-inner { max-width:1300px; margin:0 auto; padding:0 48px; height:76px; display:flex; align-items:center; justify-content:space-between; }
-.nav-logo { display:flex; align-items:center; gap:12px; cursor:pointer; text-decoration:none; }
+body {
+  background:#fff; color:#1a1a1a;
+  font-family:'Jost',sans-serif; font-weight:300;
+  font-size:16px;
+}
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(255,255,255,0.97);
+  border-bottom:1px solid #e8e0d4;
+  backdrop-filter:blur(10px);
+}
+.nav-inner {
+  max-width:1300px; margin:0 auto;
+  padding:0 48px; height:76px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:12px; cursor:pointer; }
 .nav-logo img { height:50px; width:auto; }
-.logo-name { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:#1a1a1a; letter-spacing:3px; }
+.logo-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px; font-weight:600; color:#1a1a1a; letter-spacing:3px;
+}
 .logo-sub { font-size:10px; color:#C9A96E; letter-spacing:2px; text-transform:uppercase; margin-top:2px; }
 .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
-.nav-links a { font-size:13px; font-weight:400; color:#666; text-decoration:none; letter-spacing:1.5px; text-transform:uppercase; transition:0.3s; }
+.nav-links a {
+  font-size:13px; font-weight:400; color:#666;
+  text-decoration:none; letter-spacing:1.5px; text-transform:uppercase;
+  transition:color 0.3s; cursor:pointer;
+}
 .nav-links a:hover { color:#C9A96E; }
-.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; padding: 50px 0; }
-.project-card { position: relative; overflow: hidden; border-radius: 4px; transition: 0.3s; }
+.nav-cta {
+  background:#1a1a1a; color:#fff !important;
+  padding:10px 24px; font-size:12px !important;
+  letter-spacing:2px; transition:background 0.3s !important;
+}
+.nav-cta:hover { background:#C9A96E !important; }
+
+/* PROJECT SECTION */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 50px 0;
+}
+.project-card { position: relative; overflow: hidden; border-radius: 8px; }
 .project-img { position: relative; aspect-ratio: 4/5; overflow: hidden; }
-.project-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+.project-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
 .project-card:hover .project-img img { transform: scale(1.05); }
-.project-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); display:flex; align-items:center; justify-content:center; opacity:0; transition:0.3s; }
-.project-card:hover .project-overlay { opacity:1; }
-.view-project { border: 1px solid #fff; color: #fff; padding: 12px 25px; text-decoration: none; font-size: 12px; letter-spacing: 2px; }
-.project-info { padding: 20px 0; }
+.project-overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(26,26,26,0.4); display: flex; align-items: center;
+  justify-content: center; opacity: 0; transition: opacity 0.3s;
+}
+.project-card:hover .project-overlay { opacity: 1; }
+.view-project {
+  color: #fff; text-decoration: none; border: 1px solid #fff;
+  padding: 12px 24px; letter-spacing: 2px; font-size: 12px;
+}
+.project-info { padding: 20px 0; text-align: center; }
 .project-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; margin-bottom: 5px; text-transform: uppercase; }
-.project-info p { color: #888; font-size: 12px; letter-spacing: 1px; }
+.project-info p { color: #888; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* REVEAL ANIMATION */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="https://i.ibb.co/pLp1W86/logo-scc.png" alt="SCC Logo">
+    <div class="nav-logo" onclick="window.location.href='index.html'">
+      <img src="https://i.ibb.co/pLp1W86/logo-scc.png" alt="Logo SCC">
       <div>
         <div class="logo-name">SCC CONSTRUCTION</div>
         <div class="logo-sub">Architecture & Construction</div>
       </div>
-    </a>
+    </div>
     <ul class="nav-links">
       <li><a href="#home">Trang chủ</a></li>
       <li><a href="#projects">Dự án</a></li>
-      <li><a href="#contact">Liên hệ</a></li>
+      <li><a href="#contact" class="nav-cta">Liên hệ</a></li>
     </ul>
   </div>
 </nav>
 
 <section id="projects" style="padding: 120px 48px; max-width: 1300px; margin: 0 auto;">
   <div style="text-align: center; margin-bottom: 60px;">
-    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; letter-spacing: 4px;">DỰ ÁN TIÊU BIỂU</h2>
-    <div style="width: 50px; height: 1px; background: #C9A96E; margin: 20px auto;"></div>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size: 42px;">DỰ ÁN TIÊU BIỂU</h2>
+    <div style="width: 60px; height: 1px; background: #C9A96E; margin: 25px auto;"></div>
   </div>
 
   <div class="project-grid">
-    <div class="project-card">
+    <div class="project-card reveal">
       <div class="project-img">
         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070" alt="Nhà Dì Út - Vĩnh Long">
         <div class="project-overlay">
@@ -66,13 +111,26 @@ nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(255,
         </div>
       </div>
       <div class="project-info">
-        <h3>Thiết kế - Thi công trọn gói nhà dì út - vĩnh long</h3>
-        <p>VĨNH LONG | 2024</p>
+        <h3>Thiết Kế - Thi Công Trọn Gói Nhà Dì Út - Vĩnh Long</h3>
+        <p>Vĩnh Long | 2024</p>
       </div>
     </div>
 
     </div>
 </section>
+
+<script>
+// Giữ nguyên các Script xử lý hiệu ứng của bạn
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
 
 </body>
 </html>
